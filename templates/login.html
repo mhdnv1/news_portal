@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+
+<div class="container">
+    <div>
+        {% if messages %}
+        {% for message in messages %}
+           {% if message.tags == 'error' %}
+                {{message}}
+            {% else %}
+                  {{message}}
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+   <form  method="post">
+    {% csrf_token %}
+       {{form.as_p}}
+    <button type="submit" class="btn btn-primary">login</button>
+   </form>
+</div>
+
+
+{% include 'footer.html' %}

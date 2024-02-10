@@ -1,0 +1,10 @@
+{% include 'header.html' %}
+<div class="container">
+    <h2>Вы точно хотите удалить пост?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button>delete</button>
+    </form>
+</div>
+
+{% include 'footer.html' %}

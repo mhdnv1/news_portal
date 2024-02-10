@@ -1,0 +1,49 @@
+{% include 'header.html' %}
+  <div class="container">
+    <div class="row">
+       <div class="col-3">
+        <ul class="list-group position-fixed">
+           {% for i in category %}
+          <li style="width: 100%;"  class="list-group-item fs-1">
+            <a href="{% url 'category' i.id  %}"> {{i.title}}</a>
+           </li>
+          {% endfor %}
+        </ul>
+       </div>
+       <div class="col-9">
+          <h1 class="text-center">list news</h1>
+  <div class="container">
+    {% for i in news %}
+    <div class="card my-5">
+      <div class="row">
+        <div class="col-6">
+          {% if i.photo %}
+          <img style="object-fit: cover;" width="100%" height="300px" src="{{i.photo.url}}" alt="">
+          {% else %}
+          <img width="100%" height="300px" src="https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" alt="">
+          {% endif %}
+      </div>
+      <div class="col-6">
+        <div class="card-header">
+          <h2>{{i.title}}</h2>
+        </div>
+        <div class="card-body">
+
+          <h5 class="card-title">{{i.context}}</h5>
+          <p class="card-text">{{i.create_add}}</p>
+          <p class="card-text">{{i.update_add}}</p>
+          <a href="#" class="btn btn-primary">{{i.category}}</a>
+        </div>
+      </div>
+      </div>
+      
+
+    </div>
+    {% endfor %}
+  </div>
+       </div>
+    </div>
+  </div>
+ 
+
+  {% include 'footer.html' %}
